@@ -1,0 +1,656 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Similarities
+{% endblock %}
+
+{% block main %}
+    <h1 style="padding-bottom: 30px">Profile Matches By Category</h1>
+    {% if User_Info[0]['Current_Company'] is not none %}
+        {% if Current_Company_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Current_Company'] }}:
+            </h4>
+            {%- for row in Current_Company_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Second_Company'] is not none %}
+        {% if Second_Company_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Second_Company'] }}:
+            </h4>
+            {%- for row in Second_Company_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Third_Company'] is not none %}
+        {% if Third_Company_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Third_Company'] }}:
+            </h4>
+            {%- for row in Third_Company_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Company_1'] is not none %}
+        {% if Past_Company_1_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Past_Company_1'] }}:
+            </h4>
+            {%- for row in Past_Company_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Company_2'] is not none %}
+        {% if Past_Company_2_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Past_Company_2'] }}:
+            </h4>
+            {%- for row in Past_Company_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Company_3'] is not none %}
+        {% if Past_Company_3_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Past_Company_3'] }}:
+            </h4>
+            {%- for row in Past_Company_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Company_4'] is not none %}
+        {% if Past_Company_4_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Past_Company_4'] }}:
+            </h4>
+            {%- for row in Past_Company_4_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Dream_Company'] is not none %}
+        {% if Dream_Company_Match_Rows is not none %}
+            <h4>
+                Has worked at {{ User_Info[0]['Dream_Company'] }}:
+            </h4>
+            {%- for row in Dream_Company_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Title_1'] is not none %}
+        {% if Current_Title_1_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Current_Title_1'] }}:
+            </h4>
+            {%- for row in Current_Title_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Title_1'] is not none %}
+        {% if Alternate_Title_1_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Title_1'] }}:
+            </h4>
+            {%- for row in Alternate_Title_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Title_2'] is not none %}
+        {% if Current_Title_2_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Current_Title_2'] }}:
+            </h4>
+            {%- for row in Current_Title_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Title_2'] is not none %}
+        {% if Alternate_Title_2_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Title_2'] }}:
+            </h4>
+            {%- for row in Alternate_Title_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Title_3'] is not none %}
+        {% if Current_Title_3_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Current_Title_3'] }}:
+            </h4>
+            {%- for row in Current_Title_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Title_3'] is not none %}
+        {% if Alternate_Title_3_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Title_3'] }}:
+            </h4>
+            {%- for row in Alternate_Title_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Post_College_Job'] is not none %}
+        {% if Post_College_Job_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Post_College_Job'] }}:
+            </h4>
+            {%- for row in Post_College_Job_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Position_1'] is not none %}
+        {% if Past_Position_1_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Past_Position_1'] }}:
+            </h4>
+            {%- for row in Past_Position_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Past_Position_1'] is not none %}
+        {% if Alternate_Past_Position_1_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Past_Position_1'] }}:
+            </h4>
+            {%- for row in Alternate_Past_Position_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Position_2'] is not none %}
+        {% if Past_Position_2_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Past_Position_2'] }}:
+            </h4>
+            {%- for row in Past_Position_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Past_Position_2'] is not none %}
+        {% if Alternate_Past_Position_2_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Past_Position_2'] }}:
+            </h4>
+            {%- for row in Alternate_Past_Position_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Past_Position_3'] is not none %}
+        {% if Past_Position_3_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Past_Position_3'] }}:
+            </h4>
+            {%- for row in Past_Position_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Alternate_Past_Position_4'] is not none %}
+        {% if Alternate_Past_Position_4_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Alternate_Past_Position_4'] }}:
+            </h4>
+            {%- for row in Alternate_Past_Position_4_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Career_Position_Looking_For'] is not none %}
+        {% if Career_Position_Looking_For_Match_Rows is not none %}
+            <h4>
+                Has held the title of {{ User_Info[0]['Career_Position_Looking_For'] }}:
+            </h4>
+            {%- for row in Career_Position_Looking_For_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Prep_School'] is not none %}
+        {% if Prep_School_Match_Rows is not none %}
+            <h4>
+                Has attended {{ User_Info[0]['Prep_School'] }}:
+            </h4>
+            {%- for row in Prep_School_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_School'] is not none %}
+        {% if Undergraduate_School_Match_Rows is not none %}
+            <h4>
+                Has attended {{ User_Info[0]['Undergraduate_School'] }}:
+            </h4>
+            {%- for row in Undergraduate_School_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_School_2'] is not none %}
+        {% if Undergraduate_School_2_Match_Rows is not none %}
+            <h4>
+                Has attended {{ User_Info[0]['Undergraduate_School_2'] }}:
+            </h4>
+            {%- for row in Undergraduate_School_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Postgraduate_School'] is not none %}
+        {% if Postgraduate_School_Match_Rows is not none %}
+            <h4>
+                Has attended {{ User_Info[0]['Postgraduate_School'] }}:
+            </h4>
+            {%- for row in Postgraduate_School_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Postgraduate_School_2'] is not none %}
+        {% if Postgraduate_School_2_Match_Rows is not none %}
+            <h4>
+                Has attended {{ User_Info[0]['Postgraduate_School_2'] }}:
+            </h4>
+            {%- for row in Postgraduate_School_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Graduation_Year'] is not none %}
+        {% if Undergraduate_Graduation_Year_Match_Rows is not none %}
+            <h4>
+                Also graduated from college in {{ User_Info[0]['Undergraduate_Graduation_Year'] }}:
+            </h4>
+            {%- for row in Undergraduate_Graduation_Year_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Graduation_Year_2'] is not none %}
+        {% if Undergraduate_Graduation_Year_2_Match_Rows is not none %}
+            <h4>
+                Also graduated from college in {{ User_Info[0]['Undergraduate_Graduation_Year_2'] }}:
+            </h4>
+            {%- for row in Undergraduate_Graduation_Year_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Postgraduate_Graduation_Year'] is not none %}
+        {% if Postgraduate_Graduation_Year_Match_Rows is not none %}
+            <h4>
+                Graduated from a postgrad institution in {{ User_Info[0]['Postgraduate_Graduation_Year'] }}:
+            </h4>
+            {%- for row in Postgraduate_Graduation_Year_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Postgraduate_Graduation_Year_2'] is not none %}
+        {% if Postgraduate_Graduation_Year_2_Match_Rows is not none %}
+            <h4>
+                Graduated from a postgrad institution in {{ User_Info[0]['Postgraduate_Graduation_Year_2'] }}:
+            </h4>
+            {%- for row in Postgraduate_Graduation_Year_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major'] is not none %}
+        {% if Undergraduate_Major_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major_1_2'] is not none %}
+        {% if Undergraduate_Major_1_2_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major_1_2'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_1_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major_1_3'] is not none %}
+        {% if Undergraduate_Major_1_3_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major_1_3'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_1_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major_2'] is not none %}
+        {% if Undergraduate_Major_2_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major_2'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major_2_2'] is not none %}
+        {% if Undergraduate_Major_2_2_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major_2_2'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_2_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Undergraduate_Major_2_3'] is not none %}
+        {% if Undergraduate_Major_2_3_Match_Rows is not none %}
+            <h4>
+                Studied {{ User_Info[0]['Undergraduate_Major_2_3'] }}:
+            </h4>
+            {%- for row in Undergraduate_Major_2_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Field'] is not none %}
+        {% if Field_Match_Rows is not none %}
+            <h4>
+                Graduate field of study was also {{ User_Info[0]['Field'] }}:
+            </h4>
+            {%- for row in Field_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Field_2'] is not none %}
+        {% if Field_2_Match_Rows is not none %}
+            <h4>
+                Graduate field of study was also {{ User_Info[0]['Field_2'] }}:
+            </h4>
+            {%- for row in Field_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Industry_1'] is not none %}
+        {% if Current_Industry_1_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Current_Industry_1'] }}:
+            </h4>
+            {%- for row in Current_Industry_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Industry_2'] is not none %}
+        {% if Current_Industry_2_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Current_Industry_2'] }}:
+            </h4>
+            {%- for row in Current_Industry_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Current_Industry_3'] is not none %}
+        {% if Current_Industry_3_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Current_Industry_3'] }}:
+            </h4>
+            {%- for row in Current_Industry_3_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Initial_Career_Path_Interest_1'] is not none %}
+        {% if Initial_Career_Path_Interest_1_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Initial_Career_Path_Interest_1'] }}:
+            </h4>
+            {%- for row in Initial_Career_Path_Interest_1_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Initial_Career_Path_Interest_2'] is not none %}
+        {% if Initial_Career_Path_Interest_2_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Initial_Career_Path_Interest_2'] }}:
+            </h4>
+            {%- for row in Initial_Career_Path_Interest_2_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Industry_Looking_Towards'] is not none %}
+        {% if Industry_Looking_Towards_Match_Rows is not none %}
+            <h4>
+                Has worked or been interested in {{ User_Info[0]['Industry_Looking_Towards'] }}:
+            </h4>
+            {%- for row in Industry_Looking_Towards_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    {% if User_Info[0]['Born'] is not none %}
+        {% if Born_Match_Rows is not none %}
+            <h4>
+                Also born in {{ User_Info[0]['Born'] }}:
+            </h4>
+            {%- for row in Born_Match_Rows %}    
+                <p>
+                    {{ row['Full_Name'] }}
+                </p>
+                <img src="{{ row['Image'] }}" alt="{{ row['Full_Name'] }}" height="20%" width="20%" style="padding-bottom: 20px">
+            {%- endfor %}
+            <p>-------------------------------------------------------------------------------------------------------------</p>
+        {% endif %}
+    {% endif %}
+    <h3>
+        Search for their profiles using search!
+    </h3>
+{% endblock %}
