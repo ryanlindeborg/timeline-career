@@ -6,8 +6,8 @@ import os
 import sqlalchemy
 import psycopg2
 
-urllib.parse.uses_netloc.append("postgres")
-url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 conn = psycopg2.connect(
    database=url.path[1:],
