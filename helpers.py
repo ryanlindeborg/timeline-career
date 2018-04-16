@@ -5,6 +5,7 @@ from functools import wraps
 import os
 import sqlalchemy
 import psycopg2
+import urlparse
 
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
