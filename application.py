@@ -97,22 +97,22 @@ def login():
     if request.method == "POST":
 
         # ensure username was submitted
-        if not request.form.get("Username"):
+        if not request.form.get("username"):
             return apology("Must provide username")
 
         # ensure password was submitted
-        elif not request.form.get("Password"):
+        elif not request.form.get("password"):
             return apology("Must provide password")
 
         # query database for username
-        rows = db.execute("SELECT ID,Hash FROM Users WHERE Username = :Username", Username=request.form.get("Username"))
+        rows = db.execute("SELECT id,hash FROM users WHERE username = :username", username=request.form.get("username"))
 
         # ensure username exists and password is correct
-        if len(rows) != 1 or not pwd_context.verify(request.form.get("Password"), rows[0]["Hash"]):
+        if len(rows) != 1 or not pwd_context.verify(request.form.get("password"), rows[0]["hash"]):
             return apology("Invalid username and/or password")
 
         # remember which user has logged in
-        session["user_id"] = rows[0]["ID"]
+        session["user_id"] = rows[0]["id"]
 
         # redirect user to home page
         return redirect(url_for("index"))
@@ -135,32 +135,32 @@ def register():
     # if user reached route via POST (as by submitting a form via POST)
     else:
         # ensure username was submitted
-        if not request.form.get("Username"):
+        if not request.form.get("username"):
             return apology("Must provide username")
         # ensure passwords submitted and match
-        elif not request.form.get("Password"):
+        elif not request.form.get("password"):
             return apology("Must provide password")
-        elif not request.form.get("Confirm_password"):
+        elif not request.form.get("confirm_password"):
             return apology("Must confirm password")
-        elif request.form.get("Password") != request.form.get("Confirm_password"):
+        elif request.form.get("password") != request.form.get("confirm_password"):
             return apology("Passwords don't match")
 
         # Search database and check to see if username taken
-        rows = db.execute("SELECT ID FROM Users WHERE Username = :Username", Username=request.form.get("Username"))
+        rows = db.execute("SELECT id FROM users WHERE username = :username", username=request.form.get("username"))
         if len(rows) == 1:
             return apology("Username is already taken. Please select another")
 
         # Add new user to users database, with hashed password
-        db.execute("INSERT INTO Users (Username, Hash) VALUES(:Username, :Hash)", Username=request.form.get("Username"), Hash=pwd_context.encrypt(request.form.get("Password")))
+        db.execute("INSERT INTO users (username, hash) VALUES(:username, :hash)", username=request.form.get("username"), hash=pwd_context.encrypt(request.form.get("password")))
 
         # Query database for user data just inputted
-        updated_rows = db.execute("SELECT ID FROM Users WHERE Username = :Username", Username=request.form.get("Username"))
+        updated_rows = db.execute("SELECT id FROM users WHERE username = :username", username=request.form.get("username"))
 
         # remember which user has logged in
-        session["user_id"] = updated_rows[0]["ID"]
+        session["user_id"] = updated_rows[0]["id"]
 
         # Create row in Users database with id
-        db.execute("INSERT INTO Users (ID) VALUES(:ID)", ID=session["user_id"])
+        db.execute("INSERT INTO users (id) VALUES(:id)", id=session["user_id"])
 
         # redirect user to survey
         return redirect(url_for("survey"))
@@ -177,58 +177,58 @@ def survey():
      # if user reached route via POST (as by submitting a form via POST)
     else:
         # save survey data in Users database, dependent on if user inputs info for each field
-        if request.form.get("First_Name"):
-            db.execute("UPDATE Users SET First_Name = :First_Name WHERE ID = :ID", First_Name=request.form.get("First_Name"), ID=session["user_id"])
-        if request.form.get("Last_Name"):
-            db.execute("UPDATE Users SET Last_Name = :Last_Name WHERE ID = :ID", Last_Name=request.form.get("Last_Name"), ID=session["user_id"])
-        if request.form.get("First_Name") and request.form.get("Last_Name"):
-            db.execute("UPDATE Users SET Full_Name = :Full_Name WHERE ID = :ID", Full_Name=request.form.get("First_Name") + " " + request.form.get("Last_Name"), ID=session["user_id"])
-        if request.form.get("Current_Company"):
-            db.execute("UPDATE Users SET Current_Company = :Current_Company WHERE ID = :ID", Current_Company=request.form.get("Current_Company"), ID=session["user_id"])
-        if request.form.get("Second_Company"):
-            db.execute("UPDATE Users SET Second_Company = :Second_Company WHERE ID = :ID", Second_Company=request.form.get("Second_Company"), ID=session["user_id"])
-        if request.form.get("Third_Company"):
-            db.execute("UPDATE Users SET Third_Company = :Third_Company WHERE ID = :ID", Third_Company=request.form.get("Third_Company"), ID=session["user_id"])
-        if request.form.get("Current_Title_1"):
-            db.execute("UPDATE Users SET Current_Title_1 = :Current_Title_1 WHERE ID = :ID", Current_Title_1=request.form.get("Current_Title_1"), ID=session["user_id"])
-        if request.form.get("Alternate_Title_1"):
-            db.execute("UPDATE Users SET Alternate_Title_1 = :Alternate_Title_1 WHERE ID = :ID", Alternate_Title_1=request.form.get("Alternate_Title_1"), ID=session["user_id"])
-        if request.form.get("Current_Title_2"):
-            db.execute("UPDATE Users SET Current_Title_2 = :Current_Title_2 WHERE ID = :ID", Current_Title_2=request.form.get("Current_Title_2"), ID=session["user_id"])
-        if request.form.get("Alternate_Title_2"):
-            db.execute("UPDATE Users SET Alternate_Title_2 = :Alternate_Title_2 WHERE ID = :ID", Alternate_Title_2=request.form.get("Alternate_Title_2"), ID=session["user_id"])
-        if request.form.get("Current_Title_3"):
-            db.execute("UPDATE Users SET Current_Title_3 = :Current_Title_3 WHERE ID = :ID", Current_Title_3=request.form.get("Current_Title_3"), ID=session["user_id"])
-        if request.form.get("Alternate_Title_3"):
-            db.execute("UPDATE Users SET Alternate_Title_3 = :Alternate_Title_3 WHERE ID = :ID", Alternate_Title_3=request.form.get("Alternate_Title_3"), ID=session["user_id"])
-        if request.form.get("Current_Industry_1"):
-            db.execute("UPDATE Users SET Current_Industry_1 = :Current_Industry_1 WHERE ID = :ID", Current_Industry_1=request.form.get("Current_Industry_1"), ID=session["user_id"])
-        if request.form.get("Current_Industry_2"):
-            db.execute("UPDATE Users SET Current_Industry_2 = :Current_Industry_2 WHERE ID = :ID", Current_Industry_2=request.form.get("Current_Industry_2"), ID=session["user_id"])
-        if request.form.get("Current_Industry_3"):
-            db.execute("UPDATE Users SET Current_Industry_3 = :Current_Industry_3 WHERE ID = :ID", Current_Industry_3=request.form.get("Current_Industry_3"), ID=session["user_id"])
-        if request.form.get("Year_Start_1"):
-            db.execute("UPDATE Users SET Year_Start_1 = :Year_Start_1 WHERE ID = :ID", Year_Start_1=request.form.get("Year_Start_1"), ID=session["user_id"])
-        if request.form.get("Year_Start_2"):
-            db.execute("UPDATE Users SET Year_Start_2 = :Year_Start_2 WHERE ID = :ID", Year_Start_2=request.form.get("Year_Start_2"), ID=session["user_id"])
-        if request.form.get("Year_Start_3"):
-            db.execute("UPDATE Users SET Year_Start_3 = :Year_Start_3 WHERE ID = :ID", Year_Start_3=request.form.get("Year_Start_3"), ID=session["user_id"])
-        if request.form.get("Born"):
-            db.execute("UPDATE Users SET Born = :Born WHERE ID = :ID", Born=request.form.get("Born"), ID=session["user_id"])
-        if request.form.get("Undergraduate_School"):
-            db.execute("UPDATE Users SET Undergraduate_School = :Undergraduate_School WHERE ID = :ID", Undergraduate_School=request.form.get("Undergraduate_School"), ID=session["user_id"])
-        if request.form.get("Undergraduate_Major"):
-            db.execute("UPDATE Users SET Undergraduate_Major = :Undergraduate_Major WHERE ID = :ID", Undergraduate_Major=request.form.get("Undergraduate_Major"), ID=session["user_id"])
-        if request.form.get("Undergraduate_Major_1_2"):
-            db.execute("UPDATE Users SET Undergraduate_Major_1_2 = :Undergraduate_Major_1_2 WHERE ID = :ID", Undergraduate_Major_1_2=request.form.get("Undergraduate_Major_1_2"), ID=session["user_id"])
-        if request.form.get("Undergraduate_Major_1_3"):
-            db.execute("UPDATE Users SET Undergraduate_Major_1_3 = :Undergraduate_Major_1_3 WHERE ID = :ID", Undergraduate_Major_1_3=request.form.get("Undergraduate_Major_1_3"), ID=session["user_id"])
-        if request.form.get("Undergraduate_Graduation_Year"):
-            db.execute("UPDATE Users SET Undergraduate_Graduation_Year = :Undergraduate_Graduation_Year WHERE ID = :ID", Undergraduate_Graduation_Year=request.form.get("Undergraduate_Graduation_Year"), ID=session["user_id"])
-        if request.form.get("Undergraduate_School_2"):
-            db.execute("UPDATE Users SET Undergraduate_School_2 = :Undergraduate_School_2 WHERE ID = :ID", Undergraduate_School_2=request.form.get("Undergraduate_School_2"), ID=session["user_id"])
-        if request.form.get("Undergraduate_Major_2"):
-            db.execute("UPDATE Users SET Undergraduate_Major_2 = :Undergraduate_Major_2 WHERE ID = :ID", Undergraduate_Major_2=request.form.get("Undergraduate_Major_2"), ID=session["user_id"])
+        if request.form.get("first_name"):
+            db.execute("UPDATE users SET first_name = :first_name WHERE id = :id", first_name=request.form.get("first_name"), id=session["user_id"])
+        if request.form.get("last_name"):
+            db.execute("UPDATE users SET last_name = :last_name WHERE id = :id", last_name=request.form.get("last_name"), id=session["user_id"])
+        if request.form.get("first_name") and request.form.get("last_name"):
+            db.execute("UPDATE users SET full_name = :full_name WHERE id = :id", full_name=request.form.get("first_name") + " " + request.form.get("last_name"), id=session["user_id"])
+        if request.form.get("current_company"):
+            db.execute("UPDATE users SET current_company = :current_company WHERE id = :id", current_company=request.form.get("current_company"), id=session["user_id"])
+        if request.form.get("second_company"):
+            db.execute("UPDATE users SET second_company = :second_company WHERE id = :id", second_company=request.form.get("second_company"), id=session["user_id"])
+        if request.form.get("third_company"):
+            db.execute("UPDATE users SET third_company = :third_company WHERE id = :id", third_company=request.form.get("third_company"), id=session["user_id"])
+        if request.form.get("current_title_1"):
+            db.execute("UPDATE users SET current_title_1 = :current_title_1 WHERE id = :id", current_title_1=request.form.get("current_title_1"), id=session["user_id"])
+        if request.form.get("alternate_title_1"):
+            db.execute("UPDATE users SET alternate_title_1 = :alternate_title_1 WHERE id = :id", alternate_title_1=request.form.get("alternate_title_1"), id=session["user_id"])
+        if request.form.get("current_title_2"):
+            db.execute("UPDATE users SET current_title_2 = :current_title_2 WHERE id = :id", current_title_2=request.form.get("current_title_2"), id=session["user_id"])
+        if request.form.get("alternate_title_2"):
+            db.execute("UPDATE users SET alternate_title_2 = :alternate_title_2 WHERE id = :id", alternate_title_2=request.form.get("alternate_title_2"), id=session["user_id"])
+        if request.form.get("current_title_3"):
+            db.execute("UPDATE users SET current_title_3 = :current_title_3 WHERE id = :id", current_title_3=request.form.get("current_title_3"), id=session["user_id"])
+        if request.form.get("alternate_title_3"):
+            db.execute("UPDATE users SET alternate_title_3 = :alternate_title_3 WHERE id = :id", alternate_title_3=request.form.get("alternate_title_3"), id=session["user_id"])
+        if request.form.get("current_industry_1"):
+            db.execute("UPDATE users SET current_industry_1 = :current_industry_1 WHERE id = :id", current_industry_1=request.form.get("current_industry_1"), id=session["user_id"])
+        if request.form.get("current_industry_2"):
+            db.execute("UPDATE users SET current_industry_2 = :current_industry_2 WHERE id = :id", current_industry_2=request.form.get("current_industry_2"), id=session["user_id"])
+        if request.form.get("current_industry_3"):
+            db.execute("UPDATE users SET current_industry_3 = :current_industry_3 WHERE id = :id", current_industry_3=request.form.get("current_industry_3"), id=session["user_id"])
+        if request.form.get("year_start_1"):
+            db.execute("UPDATE users SET year_start_1 = :year_start_1 WHERE id = :id", year_start_1=request.form.get("year_start_1"), id=session["user_id"])
+        if request.form.get("year_start_2"):
+            db.execute("UPDATE users SET year_start_2 = :year_start_2 WHERE id = :id", year_start_2=request.form.get("year_start_2"), id=session["user_id"])
+        if request.form.get("year_start_3"):
+            db.execute("UPDATE users SET year_start_3 = :year_start_3 WHERE id = :id", year_start_3=request.form.get("year_start_3"), id=session["user_id"])
+        if request.form.get("born"):
+            db.execute("UPDATE users SET born = :born WHERE id = :id", born=request.form.get("born"), id=session["user_id"])
+        if request.form.get("undergraduate_school"):
+            db.execute("UPDATE users SET undergraduate_school = :undergraduate_school WHERE id = :id", undergraduate_school=request.form.get("undergraduate_school"), id=session["user_id"])
+        if request.form.get("undergraduate_major"):
+            db.execute("UPDATE users SET undergraduate_major = :undergraduate_major WHERE id = :id", undergraduate_major=request.form.get("undergraduate_major"), id=session["user_id"])
+        if request.form.get("undergraduate_major_1_2"):
+            db.execute("UPDATE users SET undergraduate_major_1_2 = :undergraduate_major_1_2 WHERE id = :id", undergraduate_major_1_2=request.form.get("undergraduate_major_1_2"), id=session["user_id"])
+        if request.form.get("undergraduate_major_1_3"):
+            db.execute("UPDATE users SET undergraduate_major_1_3 = :undergraduate_major_1_3 WHERE id = :id", undergraduate_major_1_3=request.form.get("undergraduate_major_1_3"), id=session["user_id"])
+        if request.form.get("undergraduate_graduation_year"):
+            db.execute("UPDATE users SET undergraduate_graduation_year = :undergraduate_graduation_year WHERE id = :id", undergraduate_graduation_year=request.form.get("undergraduate_graduation_year"), id=session["user_id"])
+        if request.form.get("undergraduate_school_2"):
+            db.execute("UPDATE users SET undergraduate_school_2 = :undergraduate_school_2 WHERE id = :id", undergraduate_school_2=request.form.get("undergraduate_school_2"), id=session["user_id"])
+        if request.form.get("undergraduate_major_2"):
+            db.execute("UPDATE users SET undergraduate_major_2 = :undergraduate_major_2 WHERE id = :id", undergraduate_major_2=request.form.get("undergraduate_major_2"), id=session["user_id"])
         if request.form.get("Undergraduate_Major_2_2"):
             db.execute("UPDATE Users SET Undergraduate_Major_2_2 = :Undergraduate_Major_2_2 WHERE ID = :ID", Undergraduate_Major_2_2=request.form.get("Undergraduate_Major_2_2"), ID=session["user_id"])
         if request.form.get("Undergraduate_Major_2_3"):
