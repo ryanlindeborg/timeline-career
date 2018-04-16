@@ -4,6 +4,7 @@ from functools import wraps
 
 import os
 import sqlalchemy
+import psycopg2
 
 class SQL(object):
     def __init__(self, url):
