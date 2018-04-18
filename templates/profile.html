@@ -6,293 +6,293 @@
 
 {% block main %}
     <h1>Your Profile</h1>
-    {% if Full_Name is not none %}
+    {% if full_name is not none %}
         <p>
-            Name: {{ Full_Name }}
+            Name: {{ full_name }}
         </p>
     {% endif %}
-    {% if Born is not none %}
+    {% if born is not none %}
         <p>
-            Born: {{ Born }}
+            Born: {{ born }}
         </p>
     {% endif %}
-    {% if Current_Company is not none %}
+    {% if current_company is not none %}
         <p>
-            Company: {{ Current_Company }}
+            Company: {{ current_company }}
         </p>
     {% endif %}
-    {% if Current_Title_1 is not none %}
+    {% if current_title_1 is not none %}
         <p>
-            Position at {{ Current_Company }}: {{ Current_Title_1 }}
-            {% if Alternate_Title_1 is not none %}
-                and {{ Alternate_Title_1 }}
+            Position at {{ current_company }}: {{ current_title_1 }}
+            {% if alternate_title_1 is not none %}
+                and {{ alternate_title_1 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Year_Start_1 is not none %}
+    {% if year_start_1 is not none %}
         <p>
-            [{{ Year_Start_1 }} - Present]
+            [{{ year_start_1 }} - Present]
         </p>
     {% endif %}
-    {% if Second_Company is not none %}
+    {% if second_company is not none %}
         <p>
-            Company: {{ Second_Company }}
+            Company: {{ second_company }}
         </p>
     {% endif %}
-    {% if Current_Title_2 is not none %}
+    {% if current_title_2 is not none %}
         <p>
-            Position at {{ Second_Company }}: {{ Current_Title_2 }}
-            {% if Alternate_Title_2 is not none %}
-                and {{ Alternate_Title_2 }}
+            Position at {{ second_company }}: {{ current_title_2 }}
+            {% if alternate_title_2 is not none %}
+                and {{ alternate_title_2 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Year_Start_2 is not none %}
+    {% if year_start_2 is not none %}
         <p>
-            [{{ Year_Start_2 }} - Present]
+            [{{ year_start_2 }} - Present]
         </p>
     {% endif %}
-    {% if Third_Company is not none %}
+    {% if third_company is not none %}
         <p>
-            Company: {{ Third_Company }}
+            Company: {{ third_company }}
         </p>
     {% endif %}
-    {% if Current_Title_3 is not none %}
+    {% if current_title_3 is not none %}
         <p>
-            Position at {{ Third_Company }}: {{ Current_Title_3 }}
-            {% if Alternate_Title_3 is not none %}
-                and {{ Alternate_Title_3 }}
+            Position at {{ third_company }}: {{ current_title_3 }}
+            {% if alternate_title_3 is not none %}
+                and {{ alternate_title_3 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Year_Start_3 is not none %}
+    {% if year_start_3 is not none %}
         <p>
-            [{{ Year_Start_3 }} - Present]
+            [{{ year_start_3 }} - Present]
         </p>
     {% endif %}
-    {% if Undergraduate_School is not none %}
+    {% if undergraduate_school is not none %}
         <p>
-            Undergraduate University : {{ Undergraduate_School }}
+            Undergraduate University : {{ undergraduate_school }}
         </p>
     {% endif %}
-    {% if Undergraduate_Major is not none %}
+    {% if undergraduate_major is not none %}
         <p>
-            Studied: {{ Undergraduate_Major }}
-            {% if Undergraduate_Major_1_2 is not none %}
-                , {{ Undergraduate_Major_1_2 }}
-                {% if Undergraduate_Major_1_3 is not none %}
-                    , {{ Undergraduate_Major_1_3 }}
+            Studied: {{ undergraduate_major }}
+            {% if undergraduate_major_1_2 is not none %}
+                , {{ undergraduate_major_1_2 }}
+                {% if undergraduate_major_1_3 is not none %}
+                    , {{ undergraduate_major_1_3 }}
                 {% endif %}
             {% endif %}
         </p>
     {% endif %}
-    {% if Undergraduate_Graduation_Year is not none %}
+    {% if undergraduate_graduation_year is not none %}
         <p>
-            Graduated from {{ Undergraduate_School }} in {{ Undergraduate_Graduation_Year }}
+            Graduated from {{ undergraduate_school }} in {{ undergraduate_graduation_year }}
         </p>
     {% endif %}
-    {% if Undergraduate_School_2 is not none %}
+    {% if undergraduate_school_2 is not none %}
         <p>
-            Undergraduate University : {{ Undergraduate_School_2 }}
+            Undergraduate University : {{ undergraduate_school_2 }}
         </p>
     {% endif %}
-    {% if Undergraduate_Major_2 is not none %}
+    {% if undergraduate_major_2 is not none %}
         <p>
-            Studied: {{ Undergraduate_Major_2 }}
-            {% if Undergraduate_Major_2_2 is not none %}
-                , {{ Undergraduate_Major_2_2 }}
-                {% if Undergraduate_Major_2_3 is not none %}
-                    , {{ Undergraduate_Major_2_3 }}
+            Studied: {{ undergraduate_major_2 }}
+            {% if undergraduate_major_2_2 is not none %}
+                , {{ undergraduate_major_2_2 }}
+                {% if undergraduate_major_2_3 is not none %}
+                    , {{ undergraduate_major_2_3 }}
                 {% endif %}
             {% endif %}
         </p>
     {% endif %}
-    {% if Undergraduate_Graduation_Year_2 is not none %}
+    {% if undergraduate_graduation_year_2 is not none %}
         <p>
-            Graduated from {{ Undergraduate_School_2 }} in {{ Undergraduate_Graduation_Year_2 }}
+            Graduated from {{ undergraduate_school_2 }} in {{ undergraduate_graduation_year_2 }}
         </p>
     {% endif %}
-    {% if Postgraduate_School is not none %}
+    {% if postgraduate_school is not none %}
         <p>
-            Graduate School: {{ Postgraduate_School }}
+            Graduate School: {{ postgraduate_school }}
         </p>
     {% endif %}
-    {% if Postgraduate_Degree_1 is not none %}
+    {% if postgraduate_degree_1 is not none %}
         <p>
-            Degree: {{ Postgraduate_Degree_1 }}
+            Degree: {{ postgraduate_degree_1 }}
         </p>
     {% endif %}
-    {% if Field is not none %}
+    {% if field is not none %}
         <p>
-            Field of Study: {{ Field }}
+            Field of Study: {{ field }}
         </p>
     {% endif %}
-    {% if Postgraduate_Graduation_Year is not none %}
+    {% if postgraduate_graduation_year is not none %}
         <p>
-            Earned {{ Postgraduate_Degree_1 }} in {{ Postgraduate_Graduation_Year }}
+            Earned {{ postgraduate_degree_1 }} in {{ postgraduate_graduation_year }}
         </p>
     {% endif %}
-    {% if Postgraduate_School_2 is not none %}
+    {% if postgraduate_school_2 is not none %}
         <p>
-            Graduate School: {{ Postgraduate_School_2 }}
+            Graduate School: {{ postgraduate_school_2 }}
         </p>
     {% endif %}
-    {% if Postgraduate_Degree_2 is not none %}
+    {% if postgraduate_degree_2 is not none %}
         <p>
-            Degree: {{ Postgraduate_Degree_2 }}
+            Degree: {{ postgraduate_degree_2 }}
         </p>
     {% endif %}
-    {% if Field_2 is not none %}
+    {% if field_2 is not none %}
         <p>
-            Field of Study: {{ Field_2 }}
+            Field of Study: {{ field_2 }}
         </p>
     {% endif %}
-    {% if Postgraduate_Graduation_Year_2 is not none %}
+    {% if postgraduate_graduation_year_2 is not none %}
         <p>
-            Earned {{ Postgraduate_Degree_2 }} in {{ Postgraduate_Graduation_Year_2 }}
+            Earned {{ postgraduate_degree_2 }} in {{ postgraduate_graduation_year_2 }}
         </p>
     {% endif %}
-    {% if Initial_Career_Path_Interest_1 is not none %}
+    {% if initial_career_path_interest_1 is not none %}
         <p>
-            Initial Career Path Interest: {{ Initial_Career_Path_Interest_1 }}
+            Initial Career Path Interest: {{ initial_career_path_interest_1 }}
         </p>
     {% endif %}
-    {% if Initial_Career_Path_Interest_2 is not none %}
+    {% if initial_career_path_interest_2 is not none %}
         <p>
-            Other Initial Career Path Interest: {{ Initial_Career_Path_Interest_2 }}
+            Other Initial Career Path Interest: {{ initial_career_path_interest_2 }}
         </p>
     {% endif %}
-    {% if Post_College_Company is not none %}
+    {% if post_college_company is not none %}
         <p>
-            First Job Post-School: Company: {{ Post_College_Company }}
+            First Job Post-School: Company: {{ post_college_company }}
         </p>
     {% endif %}
-    {% if Post_College_Job is not none %}
+    {% if post_college_job is not none %}
         <p>
-            Position at {{ Post_College_Company }}: {{ Post_College_Job }}
+            Position at {{ post_college_company }}: {{ post_college_job }}
         </p>
     {% endif %}
-    {% if Post_College_Year_Start is not none %}
+    {% if post_college_year_start is not none %}
         <p>
-            Started at {{ Post_College_Company }} in: {{ Post_College_Year_Start }}
+            Started at {{ post_college_company }} in: {{ post_college_year_start }}
         </p>
     {% endif %}
-    {% if Post_College_Year_End is not none %}
+    {% if post_college_year_end is not none %}
         <p>
-            Left {{Post_College_Company}} in: {{ Post_College_Year_End }}
+            Left {{post_college_company}} in: {{ post_college_year_end }}
         </p>
     {% endif %}
-    {% if Past_Company_1 is not none %}
+    {% if past_company_1 is not none %}
         <p>
-            Worked at: {{ Past_Company_1 }}
+            Worked at: {{ past_company_1 }}
         </p>
     {% endif %}
-    {% if Past_Position_1 is not none %}
+    {% if past_position_1 is not none %}
         <p>
-            Position at {{ Past_Company_1 }}: {{ Past_Position_1 }}
-            {% if Alternate_Past_Position_1 is not none %}
-                and {{ Alternate_Past_Position_1 }}
+            Position at {{ past_company_1 }}: {{ past_position_1 }}
+            {% if alternate_past_position_1 is not none %}
+                and {{ alternate_past_position_1 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Past_Year_Start_1 is not none %}
+    {% if past_year_start_1 is not none %}
         <p>
-            Started at {{ Past_Company_1 }} in: {{ Past_Year_Start_1 }}
+            Started at {{ past_company_1 }} in: {{ past_year_start_1 }}
         </p>
     {% endif %}
-    {% if Past_Year_End_1 is not none %}
+    {% if past_year_end_1 is not none %}
         <p>
-            Left {{ Past_Company_1 }} in: {{ Past_Year_End_1 }}
+            Left {{ past_company_1 }} in: {{ past_year_end_1 }}
         </p>
     {% endif %}
-    {% if Past_Company_2 is not none %}
+    {% if past_company_2 is not none %}
         <p>
-            Worked at: {{ Past_Company_2 }}
+            Worked at: {{ past_company_2 }}
         </p>
     {% endif %}
-    {% if Past_Position_2 is not none %}
+    {% if past_position_2 is not none %}
         <p>
-            Position at {{ Past_Company_2 }}: {{ Past_Position_2 }}
-            {% if Alternate_Past_Position_2 is not none %}
-                and {{ Alternate_Past_Position_2 }}
+            Position at {{ past_company_2 }}: {{ past_position_2 }}
+            {% if alternate_past_position_2 is not none %}
+                and {{ alternate_past_position_2 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Past_Year_Start_2 is not none %}
+    {% if past_year_start_2 is not none %}
         <p>
-            Started at {{ Past_Company_2 }} in: {{ Past_Year_Start_2 }}
+            Started at {{ past_company_2 }} in: {{ past_year_start_2 }}
         </p>
     {% endif %}
-    {% if Past_Year_End_2 is not none %}
+    {% if past_year_end_2 is not none %}
         <p>
-            Left {{ Past_Company_2 }} in: {{ Past_Year_End_2 }}
+            Left {{ past_company_2 }} in: {{ past_year_end_2 }}
         </p>
     {% endif %}
-    {% if Past_Company_3 is not none %}
+    {% if past_company_3 is not none %}
         <p>
-            Worked at: {{ Past_Company_3 }}
+            Worked at: {{ past_company_3 }}
         </p>
     {% endif %}
-    {% if Past_Position_3 is not none %}
+    {% if past_position_3 is not none %}
         <p>
-            Position at {{ Past_Company_3 }}: {{ Past_Position_3 }}
-            {% if Alternate_Past_Position_3 is not none %}
-                and {{ Alternate_Past_Position_3 }}
+            Position at {{ past_company_3 }}: {{ past_position_3 }}
+            {% if alternate_past_position_3 is not none %}
+                and {{ alternate_past_position_3 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Past_Year_Start_3 is not none %}
+    {% if past_year_start_3 is not none %}
         <p>
-            Started at {{ Past_Company_3 }} in: {{ Past_Year_Start_3 }}
+            Started at {{ past_company_3 }} in: {{ past_year_start_3 }}
         </p>
     {% endif %}
-    {% if Past_Year_End_3 is not none %}
+    {% if past_year_end_3 is not none %}
         <p>
-            Left {{ Past_Company_3 }} in: {{ Past_Year_End_3 }}
+            Left {{ past_company_3 }} in: {{ past_year_end_3 }}
         </p>
     {% endif %}
-    {% if Past_Company_4 is not none %}
+    {% if past_company_4 is not none %}
         <p>
-            Worked at: {{ Past_Company_4 }}
+            Worked at: {{ past_company_4 }}
         </p>
     {% endif %}
-    {% if Past_Position_4 is not none %}
+    {% if past_position_4 is not none %}
         <p>
-            Position at {{ Past_Company_4 }}: {{ Past_Position_4 }}
-            {% if Alternate_Past_Position_4 is not none %}
-                and {{ Alternate_Past_Position_4 }}
+            Position at {{ past_company_4 }}: {{ past_position_4 }}
+            {% if alternate_past_position_4 is not none %}
+                and {{ alternate_past_position_4 }}
             {% endif %}
         </p>
     {% endif %}
-    {% if Past_Year_Start_4 is not none %}
+    {% if past_year_start_4 is not none %}
         <p>
-            Started at {{ Past_Company_4 }} in: {{ Past_Year_Start_4 }}
+            Started at {{ past_company_4 }} in: {{ past_year_start_4 }}
         </p>
     {% endif %}
-    {% if Past_Year_End_4 is not none %}
+    {% if past_year_end_4 is not none %}
         <p>
-            Left {{ Past_Company_4 }} in: {{ Past_Year_End_4 }}
+            Left {{ past_company_4 }} in: {{ past_year_end_4 }}
         </p>
     {% endif %}
     
-    {% if Career_Position_Looking_For is not none %}
+    {% if career_position_looking_for is not none %}
         <p>
-            Seeking a job as: {{ Career_Position_Looking_For }}
+            Seeking a job as: {{ career_position_looking_for }}
         </p>
     {% endif %}
-    {% if Industry_Looking_Towards is not none %}
+    {% if industry_looking_towards is not none %}
         <p>
-            Looking to move to this industry: {{ Industry_Looking_Towards }}
+            Looking to move to this industry: {{ industry_looking_towards }}
         </p>
     {% endif %}
-    {% if Dream_Company is not none %}
+    {% if dream_company is not none %}
         <p>
-            Dream Company to work for: {{ Dream_Company }}
+            Dream Company to work for: {{ dream_company }}
         </p>
     {% endif %}
-    {% if Miscellaneous is not none %}
+    {% if miscellaneous is not none %}
         <p>
-            Reflections and Thoughts on Career: {{ Miscellaneous }}
+            Reflections and Thoughts on Career: {{ miscellaneous }}
         </p>
     {% endif %}
 {% endblock %}
