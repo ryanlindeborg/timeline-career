@@ -2,7 +2,7 @@ chardet==2.2.1
 click==6.6
 colorama==0.2.5
 cs50==2.4.0
-Django==1.10
+Django==2.2.24
 feedparser==5.2.1
 Flask==0.11.1
 Flask-JSGlue==0.3.1
